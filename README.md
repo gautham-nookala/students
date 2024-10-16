@@ -31,10 +31,10 @@
    - To calculate per-student time on task:
 
      ```bash
-     node src/src/perStudent.js
+     node perStudent.js
      ```
 
    - To calculate per-class time on task:
      ```bash
-     node src/perClass.js
+     node perClass.js
      ```
