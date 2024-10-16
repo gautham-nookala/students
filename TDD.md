@@ -2,7 +2,7 @@
 
 To display how much students are using the product, we would use a dashboard-style UI that features graphs and filtering options for administrators to easily explore the data. Below is an overview of the UI design and technologies that would be used to create it.
 
-## Wireframe Sketch
+## UI Mockup
 
 ![Admin Panel Wireframe](admin.jpg)
 
