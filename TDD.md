@@ -4,7 +4,7 @@ To display how much students are using the product, we would use a dashboard-sty
 
 ## UI Mockup
 
-![Admin Panel Wireframe](admin.jpg)
+![Admin Panel Wireframe](./admin.jpg)
 
 ### Dashboard Overview:
 

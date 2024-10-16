@@ -20,7 +20,7 @@
 
 ## Running the Scripts
 
-3. Run the combined script to view both computations, or use individual scripts for specific calculations:
+3. Run the combined script to view both computations, or use individual scripts for specific calculations in `/src` directory:
 
    - To view both computations:
 

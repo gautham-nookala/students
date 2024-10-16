@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env.local" });
+require("dotenv").config({ path: ".env.local" });
 const { Sequelize, DataTypes, Op } = require("sequelize");
 
 // Initialize Sequelize instance
