@@ -63,7 +63,14 @@ async function fetchStudentEvents() {
     where: {
       taskId: { [Op.ne]: null },
       client_time: { [Op.ne]: null, [Op.gt]: 0 },
-      action: { [Op.in]: ["started", "finished", "paused", "unpaused"] },
+      action: {
+        [Op.in]: [
+          "started",
+          "finished",
+          "application-paused",
+          "application-unpaused",
+        ],
+      },
     },
     order: [["id", "ASC"]],
   });
@@ -101,9 +108,9 @@ function processEvent(event, activeSessions, timeOnTask, idField) {
 
   if (action === "started") {
     startSession(key, clientTime, activeSessions);
-  } else if (action === "paused") {
+  } else if (action === "application-paused") {
     pauseSession(key, clientTime, activeSessions);
-  } else if (action === "unpaused") {
+  } else if (action === "application-unpaused") {
     unpauseSession(key, clientTime, activeSessions);
   } else if (action === "finished") {
     finishSession(key, clientTime, activeSessions, timeOnTask, id);
@@ -164,8 +171,8 @@ function unpauseSession(key, clientTime, activeSessions) {
 function finishSession(key, clientTime, activeSessions, timeOnTask, id) {
   if (activeSessions[key]) {
     const { startTime, pausedTime } = activeSessions[key];
-    // if (clientTime > startTime && clientTime - startTime < 14400) { Max 4 hours per session
-    if (clientTime > startTime && clientTime - startTime) {
+    if (clientTime > startTime && clientTime - startTime < 3600) {
+      // Max 1 hour per session
       const sessionDuration = clientTime - startTime - pausedTime;
       if (!timeOnTask[id]) {
         timeOnTask[id] = 0;
